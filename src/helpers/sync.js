@@ -7,15 +7,15 @@
 module.exports = async function () {
   // return null;
 
-  /* REMOVE DATABASE *
-    const { mongoose } = require('../configs/dbConnection')
-    await mongoose.connection.dropDatabase()
-    console.log('- Database and all data DELETED!')
-    /* REMOVE DATABASE */
+  /* REMOVE DATABASE */
+  const { mongoose } = require("../configs/dbConnection");
+  await mongoose.connection.dropDatabase();
+  console.log("- Database and all data DELETED!");
+  /* REMOVE DATABASE */
 
   /* User */
   const User = require("../models/user");
-  await User.deleteMany(); // !!! Clear collection.
+  //   await User.deleteMany(); // !!! Clear collection.
   await User.create({
     _id: "65343222b67e9681f937f001",
     username: "admin",
@@ -240,46 +240,46 @@ module.exports = async function () {
     await Purchase.deleteMany() // !!! Clear collection.
     await Purchase.create({
         "_id": "65343222b67e9681f937f513",
-        "user_id": "65343222b67e9681f937f001",
-        "firm_id": "65343222b67e9681f937f304",
+        "userId": "65343222b67e9681f937f001",
+        "firmId": "65343222b67e9681f937f304",
         "brandId": "65343222b67e9681f937f123",
-        "product_id": "65343222b67e9681f937f422",
+        "productId": "65343222b67e9681f937f422",
         "quantity": 1000,
         "price": 20
     })
     await Purchase.create({
         "_id": "65343222b67e9681f937f514",
-        "user_id": "65343222b67e9681f937f001",
-        "firm_id": "65343222b67e9681f937f304",
+        "userId": "65343222b67e9681f937f001",
+        "firmId": "65343222b67e9681f937f304",
         "brandId": "65343222b67e9681f937f123",
-        "product_id": "65343222b67e9681f937f423",
+        "productId": "65343222b67e9681f937f423",
         "quantity": 1000,
         "price": 30
     })
     await Purchase.create({
         "_id": "65343222b67e9681f937f516",
-        "user_id": "65343222b67e9681f937f001",
-        "firm_id": "65343222b67e9681f937f304",
+        "userId": "65343222b67e9681f937f001",
+        "firmId": "65343222b67e9681f937f304",
         "brandId": "65343222b67e9681f937f123",
-        "product_id": "65343222b67e9681f937f426",
+        "productId": "65343222b67e9681f937f426",
         "quantity": 1000,
         "price": 5
     })
     await Purchase.create({
         "_id": "65343222b67e9681f937f519",
-        "user_id": "65343222b67e9681f937f002",
-        "firm_id": "65343222b67e9681f937f333",
+        "userId": "65343222b67e9681f937f002",
+        "firmId": "65343222b67e9681f937f333",
         "brandId": "65343222b67e9681f937f104",
-        "product_id": "65343222b67e9681f937f422",
+        "productId": "65343222b67e9681f937f422",
         "quantity": 10,
         "price": 100
     })
     await Purchase.create({
         "_id": "65343222b67e9681f937f520",
-        "user_id": "65343222b67e9681f937f001",
-        "firm_id": "65343222b67e9681f937f305",
+        "userId": "65343222b67e9681f937f001",
+        "firmId": "65343222b67e9681f937f305",
         "brandId": "65343222b67e9681f937f131",
-        "product_id": "65343222b67e9681f937f427",
+        "productId": "65343222b67e9681f937f427",
         "quantity": 10,
         "price": 2500
     })
@@ -289,33 +289,33 @@ module.exports = async function () {
     await Sale.deleteMany() // !!! Clear collection.
     await Sale.create({
         "_id": "65343222b67e9681f937f614",
-        "user_id": "65343222b67e9681f937f001",
+        "userId": "65343222b67e9681f937f001",
         "brandId": "65343222b67e9681f937f123",
-        "product_id": "65343222b67e9681f937f422",
+        "productId": "65343222b67e9681f937f422",
         "quantity": 100,
         "price": 30
     })
     await Sale.create({
         "_id": "65343222b67e9681f937f615",
-        "user_id": "65343222b67e9681f937f001",
+        "userId": "65343222b67e9681f937f001",
         "brandId": "65343222b67e9681f937f123",
-        "product_id": "65343222b67e9681f937f423",
+        "productId": "65343222b67e9681f937f423",
         "quantity": 250,
         "price": 40
     })
     await Sale.create({
         "_id": "65343222b67e9681f937f617",
-        "user_id": "65343222b67e9681f937f001",
+        "userId": "65343222b67e9681f937f001",
         "brandId": "65343222b67e9681f937f123",
-        "product_id": "65343222b67e9681f937f426",
+        "productId": "65343222b67e9681f937f426",
         "quantity": 100,
         "price": 6
     })
     await Sale.create({
         "_id": "65343222b67e9681f937f624",
-        "user_id": "65343222b67e9681f937f001",
+        "userId": "65343222b67e9681f937f001",
         "brandId": "65343222b67e9681f937f131",
-        "product_id": "65343222b67e9681f937f427",
+        "productId": "65343222b67e9681f937f427",
         "quantity": 10,
         "price": 3500
      })
