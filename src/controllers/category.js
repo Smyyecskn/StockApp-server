@@ -20,14 +20,12 @@ module.exports = {
                 </ul>
             `
         */
-
-    const data = await res.getModelList(Category);
-
-    res.status(200).send({
-      error: false,
-      details: await res.getModelListDetails(Category),
-      data,
-    });
+    // const data = await res.getModelList(Category);
+    // res.status(200).send({
+    //   error: false,
+    //   details: await res.getModelListDetails(Category),
+    //   data,
+    // });
   },
   create: async (req, res) => {
     /*
@@ -53,13 +51,24 @@ module.exports = {
     /*
             #swagger.tags = ["Categories"]
             #swagger.summary = "Get Single Category"
-        */
+            
+    */
+    if (req.params?.id) {
+      //1 category
+      const data = await Category.findOne({ _id: req.params.id });
+      res.status(200).send({
+        error: false,
+        data,
+      });
+    } else {
+      const data = await res.getModelList(Category);
 
-    const data = await Category.findOne({ _id: req.params.id });
-    res.status(200).send({
-      error: false,
-      data,
-    });
+      res.status(200).send({
+        error: false,
+        details: await res.getModelListDetails(Category),
+        data,
+      });
+    }
   },
   update: async (req, res) => {
     /*

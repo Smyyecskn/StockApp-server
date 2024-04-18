@@ -41,6 +41,9 @@ app.use(require("./src/middlewares/logger"));
 // res.getModelList():
 app.use(require("./src/middlewares/findSearchSortPage"));
 
+// route
+app.use(require("./src/routes"));
+
 /* ------------------------------------------------------- */
 // Routes:
 
@@ -71,4 +74,4 @@ app.listen(PORT, HOST, () => console.log(`http://${HOST}:${PORT}`));
 
 /* ------------------------------------------------------- */
 // Syncronization (must be in commentLine):
-require("./src/helpers/sync")(); // !!! It clear database.
+// require("./src/helpers/sync")(); // !!! It clear database.
