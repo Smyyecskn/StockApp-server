@@ -12,6 +12,7 @@ const CategorySchema = new mongoose.Schema(
       trim: true,
       required: true,
       unique: true,
+      set: (name) => name.toUpperCase(),
     },
   },
   { timestamps: true, collection: "categories" }
