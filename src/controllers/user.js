@@ -22,7 +22,7 @@ module.exports = {
                 </ul>
             `
         */
-    //!Sadece kendi kayıtlarını görebilir.
+    //!Admin olmayan sadece kendi kayıtlarını görebilir.
     const customFilters = req.user?.isAdmin ? {} : { _id: req.user.id };
     const data = await res.getModelList(User, customFilters);
     res.status(200).send({
@@ -73,6 +73,7 @@ module.exports = {
             #swagger.summary = "Get Single User"
         */
     //!Sadece kendi kaydını görebilme adminse başka kayıtları görebilir admin değilse sadece kendi kaydını görebilir.
+    //!Adminsen req.params.id'sini kabul et. Admin değilsen her durumda req.userdaki yani kendi ıdsını kabul eder.
     const customFilters = req.user?.isAdmin
       ? { _id: req.params.id }
       : { _id: req.user.id };
@@ -105,7 +106,7 @@ module.exports = {
       ? { _id: req.params.id }
       : { _id: req.user.id };
 
-    //!asmin değilse staff ve admin durumunu DEĞİŞTİREMEZ.
+    //!admin değilse staff ve admin durumunu DEĞİŞTİREMEZ.
     if (!req.user?.isAdmin) {
       delete req.body.isStaff;
       delete req.body.isAdmin;
@@ -115,6 +116,7 @@ module.exports = {
     });
     res.status(202).send({
       error: false,
+      deletebody: req.body, //SİLİNEN DEĞERLERİ isStaff ve isAdmin hiç response gelmediğini gördük.
       data,
       new: await User.findOne(customFilters),
     });
