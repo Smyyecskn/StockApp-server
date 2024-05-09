@@ -56,11 +56,11 @@ module.exports = {
     // Create:
     const data = await Purchase.create(req.body);
 
-    // Satınalma sonrası güncel stok adedini arttır:
-    // const updateProduct = await Product.updateOne({ _id: req.body.productId }, { $inc: { quantity: req.body.quantity } })
+    //! Satınalma sonrası güncel stok adedini arttır:
+    // const updateProduct = await Product.updateOne({ _id: data.productId  }, { $inc: { quantity: data.quantity } })
     const updateProduct = await Product.updateOne(
-      { _id: data.productId },
-      { $inc: { quantity: +data.quantity } }
+      { _id: req.body.productId },
+      { $inc: { quantity: +req.body.quantity } }
     );
 
     res.status(201).send({

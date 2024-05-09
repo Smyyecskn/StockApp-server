@@ -89,7 +89,7 @@ module.exports = {
     res.status(202).send({
       error: false,
       data, //update yapma verisi kaç update yapıldı vs..
-      newData: Category.findOne({ _id: req.params.id }),
+      newData: await Category.findOne({ _id: req.params.id }),
     });
   },
   delete: async (req, res) => {
