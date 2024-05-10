@@ -50,7 +50,7 @@ module.exports = async function () {
     isAdmin: false,
   });
 
-  /* Brand */
+  /* Brand *
   const Brand = require("../models/brand");
   // await Brand.deleteMany() // !!! Clear collection.
   await Brand.create({
@@ -138,7 +138,7 @@ module.exports = async function () {
     name: "Electronic",
   });
 
-  /* Firm */
+  /* Firm *
   const Firm = require("../models/firm");
   // await Firm.deleteMany() // !!! Clear collection.
   await Firm.create({
@@ -217,7 +217,7 @@ module.exports = async function () {
       "B01-Z02 Maslak Büyükdere Cad. Uso Center 245/A, 34396 Sarıyer/İstanbul, Türkiye",
   });
 
-  /* Product */
+  /* Product *
   const Product = require("../models/product");
   // await Product.deleteMany() // !!! Clear collection.
   await Product.create({
@@ -261,7 +261,7 @@ module.exports = async function () {
     price: 99.99,
   });
 
-  /* Purchase */
+  /* Purchase *
   const Purchase = require("../models/purchase");
   // await Purchase.deleteMany() // !!! Clear collection.
   await Purchase.create({
@@ -309,8 +309,7 @@ module.exports = async function () {
     quantity: 10,
     price: 2500,
   });
-
-  /* Sale */
+  /* Sale *
   const Sale = require("../models/sale");
   // await Sale.deleteMany() // !!! Clear collection.
   await Sale.create({
