@@ -16,6 +16,7 @@ module.exports = async function () {
   /* User *
   const User = require("../models/user");
   // await User.deleteMany() // !!! Clear collection.
+
   await User.create({
     _id: "65343222b67e9681f937f001",
     username: "admin",
