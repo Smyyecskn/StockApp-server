@@ -218,15 +218,15 @@ module.exports = async function () {
       "B01-Z02 Maslak Büyükdere Cad. Uso Center 245/A, 34396 Sarıyer/İstanbul, Türkiye",
   });
 
-  /* Product *
+  /* Product */
   const Product = require("../models/product");
-  // await Product.deleteMany() // !!! Clear collection.
+  // await Product.deleteMany(); //* !!! Clear collection.
   await Product.create({
     _id: "65343222b67e9681f937f421",
     name: "Tommy",
     categoryId: "65343222b67e9681f937f203",
     brandId: "65343222b67e9681f937f107",
-    quantity: 0,
+    quantity: 5,
     price: 99.99,
   });
   await Product.create({
@@ -258,7 +258,7 @@ module.exports = async function () {
     name: "Iphone 14 Pro",
     categoryId: "65343222b67e9681f937f204",
     brandId: "65343222b67e9681f937f131",
-    quantity: 0,
+    quantity: 20,
     price: 99.99,
   });
 

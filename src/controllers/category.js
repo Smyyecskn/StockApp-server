@@ -81,14 +81,14 @@ module.exports = {
                     "name": "Category 1"
                 }
             }
-        */
+    */
 
     const data = await Category.updateOne({ _id: req.params.id }, req.body, {
       runValidators: true,
     });
     res.status(202).send({
       error: false,
-      data, //update yapma verisi kaç update yapıldı vs..
+      data, //update yapma verisi kaç update yapıldı ise
       newData: await Category.findOne({ _id: req.params.id }),
     });
   },
