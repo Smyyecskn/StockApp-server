@@ -74,11 +74,11 @@ module.exports = {
         */
     //!Sadece kendi kaydını görebilme adminse başka kayıtları görebilir admin değilse sadece kendi kaydını görebilir.
     //!Adminsen req.params.id'sini kabul et. Admin değilsen her durumda req.userdaki yani kendi ıdsını kabul eder.
-    const customFilters = req.user?.isAdmin
-      ? { _id: req.params.id }
-      : { _id: req.user.id };
+    // const customFilters = req.user?.isAdmin
+    //   ? { _id: req.params.id }
+    //   : { _id: req.user.id };
 
-    const data = await User.findOne(customFilters);
+    const data = await User.findOne(customFilters); //customFilters
     res.status(200).send({
       error: false,
       data,
@@ -111,7 +111,7 @@ module.exports = {
       delete req.body.isStaff;
       delete req.body.isAdmin;
     }
-    const data = await User.updateOne(customFilters, req.body, {
+    const data = await User.updateOne(req.body, {
       runValidators: true,
     });
     res.status(202).send({
