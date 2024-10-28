@@ -1,15 +1,12 @@
 "use strict";
-/* -------------------------------------------------------
-    NODEJS EXPRESS | CLARUSWAY FullStack Team
-------------------------------------------------------- */
 
 const Brand = require("../models/brand");
 
 module.exports = {
   list: async (req, res) => {
     /*
-            #swagger.tags = ["Categories"]
-            #swagger.summary = "List Categories"
+            #swagger.tags = ["Brands"]
+            #swagger.summary = "List Brands"
             #swagger.description = `
                 You can use <u>filter[] & search[] & sort[] & page & limit</u> queries with endpoint.
                 <ul> Examples:
@@ -20,16 +17,19 @@ module.exports = {
                 </ul>
             `
         */
-    // const data = await res.getModelList(Brand);
-    // res.status(200).send({
-    //   error: false,
-    //   details: await res.getModelListDetails(Brand),
-    //   data,
-    // });
+
+    const data = await res.getModelList(Brand);
+
+    res.status(200).send({
+      error: false,
+      details: await res.getModelListDetails(Brand),
+      data,
+    });
   },
+
   create: async (req, res) => {
     /*
-            #swagger.tags = ["Categories"]
+            #swagger.tags = ["Brands"]
             #swagger.summary = "Create Brand"
             #swagger.parameters['body'] = {
                 in: 'body',
@@ -41,6 +41,7 @@ module.exports = {
         */
 
     const data = await Brand.create(req.body);
+
     res.status(201).send({
       error: false,
       data,
@@ -49,18 +50,22 @@ module.exports = {
 
   read: async (req, res) => {
     /*
-            #swagger.tags = ["Categories"]
+            #swagger.tags = ["Brands"]
             #swagger.summary = "Get Single Brand"
-            
-    */
+        */
+
+    console.log("read run");
+
     if (req.params?.id) {
-      //1 Brand
+      // Single:
       const data = await Brand.findOne({ _id: req.params.id });
+
       res.status(200).send({
         error: false,
         data,
       });
     } else {
+      // All:
       const data = await res.getModelList(Brand);
 
       res.status(200).send({
@@ -70,9 +75,10 @@ module.exports = {
       });
     }
   },
+
   update: async (req, res) => {
     /*
-            #swagger.tags = ["Categories"]
+            #swagger.tags = ["Brands"]
             #swagger.summary = "Update Brand"
             #swagger.parameters['body'] = {
                 in: 'body',
@@ -86,14 +92,22 @@ module.exports = {
     const data = await Brand.updateOne({ _id: req.params.id }, req.body, {
       runValidators: true,
     });
+
     res.status(202).send({
       error: false,
-      data, //update yapma verisi kaç update yapıldı vs..
-      newData: Brand.findOne({ _id: req.params.id }),
+      data,
+      new: await Brand.findOne({ _id: req.params.id }),
     });
   },
+
   delete: async (req, res) => {
+    /*
+            #swagger.tags = ["Brands"]
+            #swagger.summary = "Delete Brand"
+        */
+
     const data = await Brand.deleteOne({ _id: req.params.id });
+
     res.status(data.deletedCount ? 204 : 404).send({
       error: !data.deletedCount,
       data,

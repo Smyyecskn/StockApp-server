@@ -6,33 +6,20 @@
 
 module.exports = async function () {
   // return null;
-
   /* REMOVE DATABASE *
   const { mongoose } = require("../configs/dbConnection");
   await mongoose.connection.dropDatabase();
   console.log("- Database and all data DELETED!");
   /* REMOVE DATABASE */
-
   /* User *
   const User = require("../models/user");
   // await User.deleteMany() // !!! Clear collection.
 
   await User.create({
-    _id: "65343222b67e9681f937f001",
-    username: "admin",
-    password: "aA?123456",
-    email: "admin@site.com",
-    firstName: "admin",
-    lastName: "admin",
-    isActive: true,
-    isStaff: true,
-    isAdmin: true,
-  });
-  await User.create({
     _id: "65343222b67e9681f937f002",
     username: "staff",
     password: "aA?123456",
-    email: "staff@site.com",
+    email: "staf@site.com",
     firstName: "staff",
     lastName: "staff",
     isActive: true,
@@ -218,7 +205,7 @@ module.exports = async function () {
       "B01-Z02 Maslak Büyükdere Cad. Uso Center 245/A, 34396 Sarıyer/İstanbul, Türkiye",
   });
 
-  /* Product */
+  /* Product *
   const Product = require("../models/product");
   // await Product.deleteMany(); //* !!! Clear collection.
   await Product.create({
@@ -303,7 +290,7 @@ module.exports = async function () {
   });
   await Purchase.create({
     _id: "65343222b67e9681f937f520",
-    userId: "65343222b67e9681f937f001",
+    userId: "65343222b67e9681f937f002",
     firmId: "65343222b67e9681f937f305",
     brandId: "65343222b67e9681f937f131",
     productId: "65343222b67e9681f937f427",
@@ -315,7 +302,7 @@ module.exports = async function () {
   // await Sale.deleteMany() // !!! Clear collection.
   await Sale.create({
     _id: "65343222b67e9681f937f614",
-    userId: "65343222b67e9681f937f001",
+    userId: "65343222b67e9681f937f002",
     brandId: "65343222b67e9681f937f123",
     productId: "65343222b67e9681f937f422",
     quantity: 100,
@@ -323,7 +310,7 @@ module.exports = async function () {
   });
   await Sale.create({
     _id: "65343222b67e9681f937f615",
-    userId: "65343222b67e9681f937f001",
+    userId: "65343222b67e9681f937f002",
     brandId: "65343222b67e9681f937f123",
     productId: "65343222b67e9681f937f423",
     quantity: 250,
@@ -331,7 +318,7 @@ module.exports = async function () {
   });
   await Sale.create({
     _id: "65343222b67e9681f937f617",
-    userId: "65343222b67e9681f937f001",
+    userId: "65343222b67e9681f937f002",
     brandId: "65343222b67e9681f937f123",
     productId: "65343222b67e9681f937f426",
     quantity: 100,
@@ -339,7 +326,7 @@ module.exports = async function () {
   });
   await Sale.create({
     _id: "65343222b67e9681f937f624",
-    userId: "65343222b67e9681f937f001",
+    userId: "65343222b67e9681f937f002",
     brandId: "65343222b67e9681f937f131",
     productId: "65343222b67e9681f937f427",
     quantity: 10,
@@ -347,5 +334,5 @@ module.exports = async function () {
   });
 
   /* Finished */
-  console.log("* Synchronized.");
+  // console.log("* Synchronized.");
 };
